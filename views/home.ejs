@@ -1,0 +1,19 @@
+<%- include('header') %>
+  
+
+<p>Hellow!EJS!</p>
+
+<%- title %>
+<% if(sayhi) { %>
+  Hi
+  
+  <% }; %>
+  <div>
+    <% for (var i =1; i <=10;  i++ ) { %>
+      <br/>  <%= i %> 
+      <%#  will output the numbers 1-10 %>
+      <% } %>
+      
+      
+    </div>
+<%- include('footer') %>
