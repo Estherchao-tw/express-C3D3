@@ -11,6 +11,13 @@ $ express --view=ejs express-ejs-layout
 => 在express-ejs-layout⽬錄下安裝node modules
 
 $ cd expreses-ejs-layout
+
 $ npm install
+
 $ npm start
 
+在 app.js 中加入路由 /home
+
+
+var homeRouter = require('./routes/home');
+app.use('/home', homeRouter);
