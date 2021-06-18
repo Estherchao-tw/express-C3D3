@@ -1,0 +1,106 @@
+<%- include('header') %>
+<nav id="navbar-list" class="navbar navbar-light bg-light px-3">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" href="#chart">折線圖</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#svg_rect2">繪製矩形</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#svg_circle">繪製圓形</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#svg_line">繪製折線圖</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+        aria-expanded="false">Dropdown</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+        <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<p></p>
+<p>Hellow!EJS!</p>
+
+<%- title %>
+<% if(sayhi) { %>
+Hi
+
+<% }; %>
+<p></p>
+<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="10,20" class="scrollspy-example" tabindex="0">
+  <h4 id="svg_rect">繪製矩形</h4>
+  <p>...</p>
+  <svg>
+<rect x='365' y='145' width='165' height='85' />
+
+  </svg>
+  </svg>
+  <h4 id="svg_circle">繪製圓形</h4>
+  <p>...</p>
+  <svg>
+    <circle cx='365' cy='115' r='110' />
+    <text x='40' y='80'>繪製圓形</text>
+  </svg>
+  <h4 id="svg_line">線性折線圖</h4>
+  <p>...</p>
+  <div id="graph">
+    <svg>
+      <path d='M50,100L100,60L170,80L240,20' />
+    </svg>
+  </div>
+  <h4 id="scrollspyHeading4">Fourth heading</h4>
+  <p>...</p>
+  <h4 id="scrollspyHeading5">Fifth heading</h4>
+  <p>...</p>
+</div>
+
+  <ul id='list'>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <div id="chart">
+      
+    </div>
+
+    <script >
+      var svg = d3.select('#graph').append('path').attr('d',drawLine(lineData));
+      var lineData = [{  x:50,y=110},{ x: 100, y=60 },{ x: 170, y=80 },{ x: 240, y = 20}];
+      var drawLine = d3.svg.line()
+      .x(function(d) {return d.x;})
+      .y(function (d) { return d.y; })
+      .interpolate('linear');
+      var scale = d3.scale.linear()
+                  .domain([50,350])
+                  .range([0,100]);
+      console.log(scale(320));
+      console.log(scale(65));
+
+      var ds = ['blue', 'pink'];
+      d3.selectAll('#list li').data(ds).style('color',function(d) {return d;});
+
+
+
+        var chart = c3.generate({
+          bindto: "#chart",
+          data: {
+            columns: [
+              ["data1", 30, 200, 100, 400, 150, 250],
+              ["data2", 50, 20, 10, 40, 15, 25],
+            ],
+          },
+        });
+
+    </script>
+<%- include('footer') %>
