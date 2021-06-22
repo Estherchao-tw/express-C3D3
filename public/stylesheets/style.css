@@ -45,8 +45,8 @@ a {
 }
 
 svg {
-  width: 600px;
-  height: 300px;
+  width: auto;
+  height: auto;
   background-color: #BAE3f9;
 }
 
@@ -64,7 +64,7 @@ circle {
 text {
   font-family: sans-serif;
   font-weight: bold;
-  font-size: 32pt;
+  font-size: 10pt;
 }
 
 #svg_line svg {
@@ -76,4 +76,49 @@ path {
   stroke: #00a0e9;
   stroke-width: 2px;
   fill: none;
+}
+
+#wrapper {
+  width: 900px;
+  height: 500px;
+  font-size: 2px;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#wrapper g rect {
+  stroke: aqua;
+  stroke-width: 2px;
+  opacity: 0.1;
+}
+
+#wrapper g circle {
+  fill: red;
+  opacity: 0.5;
+}
+
+#wrapper g text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  font-weight: lighter;
+}
+
+#axis {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  font-weight: lighter;
+  
+}
+
+
+#wrapper1 {
+  width: 900px;
+  height: 500px;
+  font-size: 2px;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#wrapper1 g rect {
+  stroke: aqua;
+  stroke-width: 1px;
+  opacity: 1;
 }

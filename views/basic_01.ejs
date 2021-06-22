@@ -58,6 +58,13 @@ Hi
       <path d='M50,100L100,60L170,80L240,20' />
     </svg>
   </div>
+    <h4 id="svg_line">線性折線圖</h4>
+    <p>...</p>
+    <div id="graph">
+      <svg>
+        <path d='M50,100L100,60L170,80L240,20' />
+      </svg>
+    </div>
   <h4 id="scrollspyHeading4">Fourth heading</h4>
   <p>...</p>
   <h4 id="scrollspyHeading5">Fifth heading</h4>
@@ -75,12 +82,16 @@ Hi
     </div>
 
     <script >
-      var svg = d3.select('#graph').append('path').attr('d',drawLine(lineData));
-      var lineData = [{  x:50,y=110},{ x: 100, y=60 },{ x: 170, y=80 },{ x: 240, y = 20}];
-      var drawLine = d3.svg.line()
-      .x(function(d) {return d.x;})
-      .y(function (d) { return d.y; })
-      .interpolate('linear');
+    
+     d3.select('#graph').append('svg');
+      var svg = d3.select('#graph').append('svg');
+      var lineData = [{ x: 50, y: 110 }, { x: 100, y: 60 }, { x: 170, y: 80 }, { x: 240, y: 20 }];
+      var drawLine = d3.line()
+          .x(function(d) {return d.x;})
+          .y(function (d) { return d.y;})
+          .interpolate('linear');
+      console.log(drawLine(lineData));
+      svg.append('path').attr('d', drawLine(lineData));
       var scale = d3.scale.linear()
                   .domain([50,350])
                   .range([0,100]);
